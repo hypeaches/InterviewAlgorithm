@@ -9,7 +9,7 @@ void SortBase::Output(std::vector<int>& src)
         return;
     }
     static int count = 1;
-    std::cout<<"\n"<<count++<<":\t";
+    std::cout<<count++<<":\t";
     for (int num : src)
     {
         std::cout<<num<<"\t";
