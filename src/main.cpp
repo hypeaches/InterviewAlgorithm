@@ -1,7 +1,35 @@
 #include <iostream>
+#include "CommandLine.h"
+#include "BubbleSort.h"
 
-int main()
+void GetData(std::vector<int>& src);
+
+int main(int argc, char* argv[])
 {
-    std::cout<<"aaa\n";
-    return 0;
+    int ret = 0;
+    try
+    {
+        CommandLine::Init(argc, argv);
+
+        std::vector<int> src;
+        GetData(src);
+
+        BubbleSort bs;
+        bs.Sort(src);
+    }
+    catch (const std::exception& err)
+    {
+        ret = 1;
+        std::cerr<<"error: "<<err.what()<<std::endl;
+    }
+    return ret;
+}
+
+void GetData(std::vector<int>& src)
+{
+    int num = 0;
+    while (std::cin>>num)
+    {
+        src.push_back(num);
+    }
 }
