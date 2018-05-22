@@ -2,6 +2,7 @@
 #include "CommandLine.h"
 #include "BubbleSort.h"
 #include "SelectionSort.h"
+#include "QuickSort.h"
 
 void GetData(std::vector<int>& src);
 
@@ -15,8 +16,9 @@ int main(int argc, char* argv[])
         std::vector<int> src;
         GetData(src);
 
-        BubbleSort st;
+        //BubbleSort st;
         //SelectionSort st;
+        QuickSort st;
         st.Sort(src);
     }
     catch (const std::exception& err)
