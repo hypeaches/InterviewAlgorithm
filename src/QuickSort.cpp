@@ -1,6 +1,8 @@
 #include "QuickSort.h"
 
-void DoQuickSort(int* src, int l, int r)
+std::vector<int>* unsorted_vec;
+
+void QuickSort::DoQuickSort(int* src, int l, int r)
 {
     if (l >= r) return;
 
@@ -22,6 +24,7 @@ void DoQuickSort(int* src, int l, int r)
     }
 
     src[i] = tmp;
+    Output(*unsorted_vec);
     DoQuickSort(src, l, i - 1);
     DoQuickSort(src, i + 1, r);
 }
@@ -30,6 +33,7 @@ void QuickSort::Sort(std::vector<int>& src)
 {
     if (src.size() > 1)
     {
+        unsorted_vec = &src;
         DoQuickSort(src.data(), 0, src.size() - 1);
     }
     Output(src);
